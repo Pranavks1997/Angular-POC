@@ -1,11 +1,16 @@
 .patient-inp-box-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    .patient-inp-box-1 {
-        display: flex;
-    }
-    .patient-inp-box-2 {
-        display: flex;
-    }
+  .patient-inp-box-1,
+  .patient-inp-box-2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .patient-inp-box-2 {
+    flex-direction: row-reverse;
+  }
+
 }

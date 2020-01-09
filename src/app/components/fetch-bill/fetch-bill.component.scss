@@ -1,0 +1,9 @@
+.fetch-container {
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+    input, button{
+        height: fit-content;
+        align-self: center;
+    }
+}
