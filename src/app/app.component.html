@@ -1,28 +1,38 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-  <!-- Insert header here -->
+    <!-- Insert header here -->
+    <h1>Angular-POC</h1>
   </nb-layout-header>
 
   <nb-layout-column>
-
     <div class="main-container">
       <div class="fetch-container">
         <app-fetch-bill></app-fetch-bill>
       </div>
       <div class="patient-details-container">
-        <app-patient-details></app-patient-details>
+        <h4>Patient Details</h4>
+        <nb-card [size]="'medium'">
+          <nb-card-body>
+            <app-patient-details></app-patient-details>
+          </nb-card-body>
+        </nb-card>
       </div>
       <div class="bill-details-container">
-        <app-bill-details></app-bill-details>
+          <h4>Bill Details</h4>
+        <nb-card [size]="'medium'">
+          <nb-card-body>
+            <app-bill-details></app-bill-details>
+          </nb-card-body>
+        </nb-card>
       </div>
     </div>
-    <!-- <router-outlet></router-outlet> -->
-    
+
+
   </nb-layout-column>
 
   <nb-layout-footer fixed>
-  <!-- Insert footer here -->
+    <!-- Insert footer here -->
   </nb-layout-footer>
 
 </nb-layout>

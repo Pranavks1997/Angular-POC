@@ -1,1 +1,18 @@
-<p>patient-details works!</p>
+<div class="patient-inp-box-container">
+  <div class="patient-inp-box-1">
+    <div class="patient-inp-box" *ngFor="let item of items;let i = index">
+      <div *ngIf="i<3" class="inp-box-row-1">
+        <h6>{{item.title}}</h6>
+        <input nbInput>
+      </div>
+    </div>
+  </div>
+  <div class="patient-inp-box-2">
+    <div class="patient-inp-box" *ngFor="let item of items;let i = index">
+      <div *ngIf="i>=3" class="inp-box-row-1">
+        <h6>{{item.title}}</h6>
+        <input nbInput>
+      </div>
+    </div>
+  </div>
+</div>
