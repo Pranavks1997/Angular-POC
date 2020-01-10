@@ -1,26 +1,52 @@
-<table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
+<nb-card [size]="'large'" accent="info">
+  <nb-card-header>
+    <h3>Bill Details</h3>
+    <div class="number-and-date">
+      <h6>Bill No: {{billHeader.BillNo}}</h6>
+      <h6>Date: {{billHeader.Bill_Dt}}</h6>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
 
-        <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
-        <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
-  
-        <ng-container [nbTreeGridColumnDef]="customColumn">
-          <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
-            {{customColumn}}
-          </th>
-          <td nbTreeGridCell *nbTreeGridCellDef="let row">
-            <app-nb-fs-icon [kind]="row.data.kind" [expanded]="row.expanded"></app-nb-fs-icon>
-            {{row.data[customColumn]}}
-          </td>
-        </ng-container>
-  
-        <ng-container *ngFor="let column of defaultColumns; let index = index"
-                      [nbTreeGridColumnDef]="column"
-                      [showOn]="getShowOn(index)">
-          <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
-            {{column}}
-          </th>
-          <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
-        </ng-container>
-  
-      </table>
-  
+      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+
+      <ng-container *ngFor="let column of defaultColumns; let index = index" [nbTreeGridColumnDef]="column"
+        [showOn]="getShowOn(index)">
+        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+          {{column}}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+      </ng-container>
+
+      <ng-container [nbTreeGridColumnDef]="customColumn">
+        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+          {{customColumn}}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row;let i = index">
+          <a (click)="openEditWindow(row.data,i,true)"><i class="fa fa-edit"></i></a>
+        </td>
+      </ng-container>
+
+    </table>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="total-and-payable">
+      <h6>Total: {{billHeader.Bill_Total}}</h6>
+      <h6>Payable: {{billHeader.Bill_Payable}}</h6>
+    </div>
+  </nb-card-footer>
+</nb-card>
+<ng-template #contentTemplate let-data>
+  <form [formGroup]="BillEditForm">
+    <div class="edit-window-container">
+      <div *ngFor="let item of editableBillColumns">
+        <h6>{{item}}: </h6>
+        <input nbInput type="text" formControlName="{{item}}">
+      </div>
+      <button style="margin-top:15px;" nbButton href="#" (click)="editDetails()">Edit</button>
+    </div>
+  </form>
+</ng-template>

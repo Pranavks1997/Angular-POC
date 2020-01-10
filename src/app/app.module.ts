@@ -1,5 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+  AbstractControl
+} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,8 +18,9 @@ import {
   NbLayoutModule,
   NbInputModule,
   NbCardModule,
+  NbWindowModule,
   NbButtonModule,
-  NbTreeGridModule,
+  NbTreeGridModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FsIconComponent } from './components/nb-fs-icon/nb-fs-icon.component';
@@ -30,13 +37,16 @@ import { FsIconComponent } from './components/nb-fs-icon/nb-fs-icon.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     NbThemeModule.forRoot({ name: 'cosmic' }),
+    NbWindowModule.forRoot(),
     NbLayoutModule,
     NbInputModule,
     NbCardModule,
     NbButtonModule,
     NbTreeGridModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

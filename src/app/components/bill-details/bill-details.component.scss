@@ -1,0 +1,16 @@
+.number-and-date,
+.total-and-payable {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-window-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 40px;
+
+  h6 {
+    margin-bottom: 10px;
+  }
+}

@@ -1,18 +1,29 @@
-<div class="patient-inp-box-container">
-  <div class="patient-inp-box-1">
-    <div class="patient-inp-box" *ngFor="let item of items;let i = index">
-      <div *ngIf="i<3" class="inp-box-row">
-        <h6>{{item.title}}</h6>
-        <input nbInput>
+<nb-card [size]="'medium'" accent="info">
+  <nb-card-header>
+    <h3>Patient Details</h3>
+
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="PatientInfoForm">
+      <div class="patient-inp-box-container">
+        <div class="patient-inp-box-1">
+          <div class="patient-inp-box" *ngFor="let item of PatientDetailsInputs;let i = index">
+            <div *ngIf="i<3" class="inp-box-row">
+              <h6>{{item.title}}: </h6>
+              <input nbInput type={{item.inputType}} formControlName="{{item.formControlName}}" [attr.disabled]="true">
+            </div>
+          </div>
+        </div>
+        <div class="patient-inp-box-2">
+          <div class="patient-inp-box" *ngFor="let item of PatientDetailsInputs;let i = index">
+            <div *ngIf="i>=3" class="inp-box-row">
+              <h6>{{item.title}}: </h6>
+              <input nbInput type="{{item.inputType}}" formControlName="{{item.formControlName}}"
+                [attr.disabled]="true">
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="patient-inp-box-2">
-    <div class="patient-inp-box" *ngFor="let item of items;let i = index">
-      <div *ngIf="i>=3" class="inp-box-row">
-        <h6>{{item.title}}</h6>
-        <input nbInput>
-      </div>
-    </div>
-  </div>
-</div>
+    </form>
+  </nb-card-body>
+</nb-card>

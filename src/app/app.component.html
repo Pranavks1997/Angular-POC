@@ -1,7 +1,6 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-    <!-- Insert header here -->
     <h1>Angular-POC</h1>
   </nb-layout-header>
 
@@ -10,20 +9,10 @@
 
       <app-fetch-bill></app-fetch-bill>
       <div class="patient-details-container">
-        <nb-card [size]="'medium'" accent="info">
-          <nb-card-header>Patient Details</nb-card-header>
-          <nb-card-body>
-            <app-patient-details></app-patient-details>
-          </nb-card-body>
-        </nb-card>
+        <app-patient-details></app-patient-details>
       </div>
       <div class="bill-details-container">
-        <nb-card [size]="'small'" accent="info">
-            <nb-card-header>Bill Details</nb-card-header>
-          <nb-card-body>
-            <app-bill-details></app-bill-details>
-          </nb-card-body>
-        </nb-card>
+        <app-bill-details></app-bill-details>
       </div>
     </div>
 
@@ -31,7 +20,6 @@
   </nb-layout-column>
 
   <nb-layout-footer fixed>
-    <!-- Insert footer here -->
   </nb-layout-footer>
 
 </nb-layout>

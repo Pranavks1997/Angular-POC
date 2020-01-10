@@ -1,6 +1,8 @@
 .patient-inp-box-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  height: 80%;
 
   .patient-inp-box-1,
   .patient-inp-box-2 {
@@ -11,6 +13,7 @@
 
   .patient-inp-box-2 {
     flex-direction: row-reverse;
+    justify-content: space-around;
   }
 
 }
